@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TextField, Button, Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, InputLabel, MenuItem } from '@mui/material';
 import { createItem, getAllItems } from '../utils/rotasBack';
 import { IItem, IVenda, IProduto } from '../interfaces';
+import { toast } from 'react-toastify';
 
 const useVendas = () => {
   const [vendas, setVendas] = useState<IVenda[]>([]);
@@ -45,8 +46,9 @@ const VendasPage: React.FC = () => {
       setProdutoId(0);
       setQuantidade(1);
       setPrecoTotal('');
+      toast.success('Produto adicionado ao carrinho');
     } else {
-      alert('Preencha todos os campos corretamente');
+      toast.warn('Preencha todos os campos corretamente');
     }
   };
 
@@ -59,8 +61,9 @@ const VendasPage: React.FC = () => {
       setValorTotal(0);
       setStatus('PENDENTE');
       carregarVendas();
+      toast.success('Venda criada com sucesso');
     } else {
-      alert('Preencha todos os campos corretamente');
+      toast.warn('Você precisa adicionar produtos primeiro');
     }
   };
 

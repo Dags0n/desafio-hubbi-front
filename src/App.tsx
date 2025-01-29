@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 import Navbar from "./components/Navbar"
 import VendasPage from "./pages/VendasPage"
 
@@ -29,7 +30,15 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={2000}
+        closeOnClick
+        draggable
+      />
+    </>
   )
 }
 
