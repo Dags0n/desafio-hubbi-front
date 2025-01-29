@@ -1,25 +1,28 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import VendasPage from "./pages/VendasPage"
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home</div>,
+    element: 
+      <Navbar>Home</Navbar>,
   },
   {
     path: '/produtos',
-    element: <div>Produtos</div>,
+    element: <Navbar>Produtos</Navbar>,
   },
   {
     path: '/vendas',
-    element: <div>Vendas</div>,
+    element: <Navbar><VendasPage /></Navbar>,
   },
   {
     path: '/compras',
-    element: <div>Compras</div>,
+    element: <Navbar>Compras</Navbar>,
   },
   {
     path: '*',
-    element: <div>Not Found</div>,
+    element: <Navbar>Not Found</Navbar>,
   }
 ])
 
