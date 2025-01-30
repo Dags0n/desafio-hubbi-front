@@ -3,6 +3,7 @@ import { ToastContainer } from "react-toastify"
 import Navbar from "./components/Navbar"
 import VendasPage from "./pages/VendasPage"
 import ProdutosPage from "./pages/ProdutosPage"
+import ComprasPage from "./pages/ComprasPage"
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/compras',
-    element: <Navbar>Compras</Navbar>,
+    element: <Navbar><ComprasPage /></Navbar>,
   },
   {
     path: '*',
