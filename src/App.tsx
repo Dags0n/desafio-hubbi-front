@@ -4,12 +4,13 @@ import Navbar from "./components/Navbar"
 import VendasPage from "./pages/VendasPage"
 import ProdutosPage from "./pages/ProdutosPage"
 import ComprasPage from "./pages/ComprasPage"
+import HomePage from "./pages/HomePage"
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: 
-      <Navbar>Home</Navbar>,
+      <Navbar><HomePage /></Navbar>,
   },
   {
     path: '/produtos',
