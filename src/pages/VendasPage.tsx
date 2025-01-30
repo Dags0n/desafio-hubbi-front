@@ -3,6 +3,7 @@ import { TextField, Button, Container, Typography, Table, TableBody, TableCell, 
 import { createItem, getAllItems } from '../utils/rotasBack';
 import { IItem, IVenda, IProduto } from '../interfaces';
 import { toast } from 'react-toastify';
+import { Delete } from '@mui/icons-material';
 
 const useVendas = () => {
   const [vendas, setVendas] = useState<IVenda[]>([]);
@@ -64,6 +65,16 @@ const VendasPage: React.FC = () => {
       toast.success('Venda criada com sucesso');
     } else {
       toast.warn('Você precisa adicionar produtos primeiro');
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      await createItem('vendas', id);
+      carregarVendas();
+      toast.success('Venda deletada com sucesso');
+    } catch (error) {
+      toast.error('Erro ao deletar venda');
     }
   };
 
@@ -144,6 +155,7 @@ const VendasPage: React.FC = () => {
               <TableCell><strong>Valor Total</strong></TableCell>
               <TableCell><strong>Status</strong></TableCell>
               <TableCell><strong>Data</strong></TableCell>
+              <TableCell><strong>Ações</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -153,6 +165,11 @@ const VendasPage: React.FC = () => {
                 <TableCell>{venda.valorTotal}</TableCell>
                 <TableCell>{venda.status}</TableCell>
                 <TableCell>{venda.date}</TableCell>
+                <TableCell>
+                  <Button onClick={() => handleDelete(venda.id)} sx={{ color: 'black' }}>
+                    <Delete />
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
