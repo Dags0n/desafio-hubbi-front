@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { TextField, Button, Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
-import { createItem, getAllItems } from '../utils/rotasBack';
+import { createItem, getAllItems, deleteItem } from '../utils/rotasBack';
 import { IProduto } from '../interfaces';
+import { Delete } from '@mui/icons-material';
+import { toast } from 'react-toastify';
 
 const ProdutosPage: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -26,6 +28,19 @@ const ProdutosPage: React.FC = () => {
       setPreco('');
       setEstoque(0);
       carregarProdutos();
+      toast.success('Produto adicionado com sucesso');
+    } else {
+      toast.warn('Preencha todos os campos corretamente');
+    }
+  };
+
+  const handleDelete = async (id: number) => {
+    try {
+      await deleteItem('produtos', id);
+      carregarProdutos();
+      toast.success('Produto deletado com sucesso');
+    } catch (error) {
+      toast.error('Erro ao deletar produto');
     }
   };
 
@@ -77,6 +92,7 @@ const ProdutosPage: React.FC = () => {
               <TableCell><strong>Nome</strong></TableCell>
               <TableCell><strong>Preço</strong></TableCell>
               <TableCell><strong>Estoque</strong></TableCell>
+              <TableCell><strong>Ações</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -86,6 +102,11 @@ const ProdutosPage: React.FC = () => {
                 <TableCell>{produto.nome}</TableCell>
                 <TableCell>{produto.preco}</TableCell>
                 <TableCell>{produto.estoque}</TableCell>
+                <TableCell>
+                  <Button onClick={() => handleDelete(produto.id)} sx={{ color: 'black' }}>
+                    <Delete />
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
