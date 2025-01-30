@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# 📌 Frontend - Sistema de Compras e Vendas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 Descrição
+Este é o frontend do sistema de compras e vendas, desenvolvido com **React**, **TypeScript** e integrado à API NestJS. O objetivo é fornecer uma interface amigável para gestão de produtos, compras e vendas. (Feito para um desafio da Hubbi)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
+- **React.js** (Vite)
+- **TypeScript**
+- **React Router Dom**
+- **React Toastify**
+- (Para requisições HTTP eu poderia ter usado axios, mas usei o próprio Fetch do JS)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📦 Instalação e Execução
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 1️⃣ Clonar o repositório:
+```sh
+  git clone https://github.com/Dags0n/desafio-hubbi-front
+  cd desafio-hubbi-front
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### 2️⃣ Instalar dependências:
+```sh
+  npm install
 ```
+
+### 3️⃣ Configurar variáveis de ambiente:
+
+### 4️⃣ Iniciar a aplicação:
+```sh
+  npm start
+```
+Acesse no navegador:
+```
+http://localhost:5173
+```
+
+---
+
+## 🖥️ Principais Telas
+
+### 📌 Home
+Exibe um dashboard com estatísticas gerais do sistema. <br /><br />
+<img src="https://github.com/Dags0n/desafio-hubbi-front/blob/main/src/assets/home.png" alt="home.png" height="300px">
+
+### 📦 Produtos
+Permite listar, cadastrar e excluir produtos. <br /><br />
+<img src="https://github.com/Dags0n/desafio-hubbi-front/blob/main/src/assets/produtos.png" alt="produtos.png" height="300px">
+
+### 🛒 Compras
+Gerenciamento de compras, incluindo listagem e criação de novas compras.<br /><br />
+<img src="https://github.com/Dags0n/desafio-hubbi-front/blob/main/src/assets/compras.png" alt="compras.png" height="300px">
+
+### 💰 Vendas
+Interface para visualizar e registrar vendas. <br /><br />
+<img src="https://github.com/Dags0n/desafio-hubbi-front/blob/main/src/assets/vendas.png" alt="vendas.png" height="300px">
+
+---
+
+**React.js!** 🚀
+
